@@ -1,0 +1,73 @@
+# depslib dependency file v1.0
+1680589651 source:c:\users\admin\desktop\ban-ga\bullet.cpp
+	"Bullet.h"
+
+1680224828 c:\users\admin\desktop\ban-ga\bullet.h
+	"Entity.h"
+
+1680755193 c:\users\admin\desktop\ban-ga\entity.h
+	"ConstVal.h"
+
+1680589651 c:\users\admin\desktop\ban-ga\constval.h
+	<bits/stdc++.h>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	<SDL_ttf.h>
+
+1680589669 source:c:\users\admin\desktop\ban-ga\chicken.cpp
+	"Chicken.h"
+
+1680589683 c:\users\admin\desktop\ban-ga\chicken.h
+	"Plane.h"
+
+1680793048 c:\users\admin\desktop\ban-ga\plane.h
+	"Bullet.h"
+
+1680967422 source:c:\users\admin\desktop\ban-ga\chickenwave.cpp
+	"ChickenWave.h"
+
+1680706105 c:\users\admin\desktop\ban-ga\chickenwave.h
+	"Chicken.h"
+
+1680967659 source:c:\users\admin\desktop\ban-ga\collision.cpp
+	"Collision.h"
+
+1680967659 c:\users\admin\desktop\ban-ga\collision.h
+	"ChickenWave.h"
+
+1680533879 source:c:\users\admin\desktop\ban-ga\constval.cpp
+	"ConstVal.h"
+
+1680755193 source:c:\users\admin\desktop\ban-ga\entity.cpp
+	"Entity.h"
+
+1680793180 source:c:\users\admin\desktop\ban-ga\game.cpp
+	"Game.h"
+	"Plane.h"
+	"Chicken.h"
+	"ChickenWave.h"
+	"Collision.h"
+	"Menu.h"
+
+1680706105 c:\users\admin\desktop\ban-ga\game.h
+	"ConstVal.h"
+
+1679153677 source:c:\users\admin\desktop\ban-ga\main.cpp
+	"Game.h"
+
+1680967659 source:c:\users\admin\desktop\ban-ga\menu.cpp
+	"Menu.h"
+
+1680967659 c:\users\admin\desktop\ban-ga\menu.h
+	"Collision.h"
+
+1680793048 source:c:\users\admin\desktop\ban-ga\plane.cpp
+	"Plane.h"
+
+1680591525 source:c:\users\admin\desktop\ban-ga\ttf.cpp
+	"TTF.h"
+
+1680591267 c:\users\admin\desktop\ban-ga\ttf.h
+	"Entity.h"
+
