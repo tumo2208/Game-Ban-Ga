@@ -48,15 +48,15 @@ void Game::EndLoop()
 void Game::Run()
 {
     if (Mix_OpenAudio(44100,MIX_DEFAULT_FORMAT,2,2048) == -1)   isRunning = false;
-    Mix_Chunk* plane_bullet_sound = Mix_LoadWAV("assets/plane_bullet_sound.wav");
-    Mix_Chunk* chicken_die_sound = Mix_LoadWAV("assets/chicken_die_sound.wav");
-    Mix_Chunk* Game_Menu_Music = Mix_LoadWAV("assets/Game_Menu_Music.wav");
-    Mix_Chunk* Game_Music = Mix_LoadWAV("assets/Game_Music.wav");
-    Mix_Chunk* gameover_music_sound = Mix_LoadWAV("assets/gameover_music_sound.wav");
-    Mix_Chunk* victory_music_sound = Mix_LoadWAV("assets/victory_music_sound.wav");
+    Mix_Chunk* plane_bullet_sound = Mix_LoadWAV("bin/Debug/assets/plane_bullet_sound.wav");
+    Mix_Chunk* chicken_die_sound = Mix_LoadWAV("bin/Debug/assets/chicken_die_sound.wav");
+    Mix_Chunk* Game_Menu_Music = Mix_LoadWAV("bin/Debug/assets/Game_Menu_Music.wav");
+    Mix_Chunk* Game_Music = Mix_LoadWAV("bin/Debug/assets/Game_Music.wav");
+    Mix_Chunk* gameover_music_sound = Mix_LoadWAV("bin/Debug/assets/gameover_music_sound.wav");
+    Mix_Chunk* victory_music_sound = Mix_LoadWAV("bin/Debug/assets/victory_music_sound.wav");
 
     if (TTF_Init() == -1)   isRunning = false;
-    TTF_Font* font = TTF_OpenFont("assets/arial.ttf", 20);
+    TTF_Font* font = TTF_OpenFont("bin/Debug/assets/arial.ttf", 20);
 
     Plane spaceship;
     Entity Score;
@@ -87,12 +87,12 @@ void Game::Run()
     int wave = 0;
     int plane_number = 1;
 
-    game_menu.Entity::loadIMG("assets/Background_Menu.png", ren);
-    game_help.Entity::loadIMG("assets/Game_Help.png", ren);
-    game_background.Entity::loadIMG("assets/Background_Space.png", ren);
-    game_gameover.Entity::loadIMG("assets/GAMEOVER.png", ren);
-    game_victory.Entity::loadIMG("assets/VICTORY.png", ren);
-    game_score.Entity::loadIMG("assets/Game_Score.png", ren);
+    game_menu.Entity::loadIMG("bin/Debug/assets/Background_Menu.png", ren);
+    game_help.Entity::loadIMG("bin/Debug/assets/Game_Help.png", ren);
+    game_background.Entity::loadIMG("bin/Debug/assets/Background_Space.png", ren);
+    game_gameover.Entity::loadIMG("bin/Debug/assets/GAMEOVER.png", ren);
+    game_victory.Entity::loadIMG("bin/Debug/assets/VICTORY.png", ren);
+    game_score.Entity::loadIMG("bin/Debug/assets/Game_Score.png", ren);
 
     game_menu.SetWidthHeight(SCREEN_WIDTH, SCREEN_HEIGHT);
     game_menu.Entity::SetPosition(0, 0);

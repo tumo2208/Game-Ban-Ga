@@ -21,35 +21,35 @@ void Plane::loadIMG(const int& plane_number, SDL_Renderer* ren)
 
     if (mod(plane_number, 5) == 1)
     {
-        SDL_Surface* loadSurface = IMG_Load("assets/SpaceShip1.png");
+        SDL_Surface* loadSurface = IMG_Load("bin/Release/assets/SpaceShip1.png");
         texture = SDL_CreateTextureFromSurface(ren, loadSurface);
         SDL_FreeSurface(loadSurface);
     }
 
     if (mod(plane_number, 5) == 2)
     {
-        SDL_Surface* loadSurface = IMG_Load("assets/SpaceShip2.png");
+        SDL_Surface* loadSurface = IMG_Load("bin/Release/assets/SpaceShip2.png");
         texture = SDL_CreateTextureFromSurface(ren, loadSurface);
         SDL_FreeSurface(loadSurface);
     }
 
     if (mod(plane_number, 5) == 3)
     {
-        SDL_Surface* loadSurface = IMG_Load("assets/SpaceShip3.png");
+        SDL_Surface* loadSurface = IMG_Load("bin/Release/assets/SpaceShip3.png");
         texture = SDL_CreateTextureFromSurface(ren, loadSurface);
         SDL_FreeSurface(loadSurface);
     }
 
     if (mod(plane_number, 5) == 4)
     {
-        SDL_Surface* loadSurface = IMG_Load("assets/SpaceShip4.png");
+        SDL_Surface* loadSurface = IMG_Load("bin/Release/assets/SpaceShip4.png");
         texture = SDL_CreateTextureFromSurface(ren, loadSurface);
         SDL_FreeSurface(loadSurface);
     }
 
     if (mod(plane_number, 5) == 5)
     {
-        SDL_Surface* loadSurface = IMG_Load("assets/SpaceShip5.png");
+        SDL_Surface* loadSurface = IMG_Load("bin/Release/assets/SpaceShip5.png");
         texture = SDL_CreateTextureFromSurface(ren, loadSurface);
         SDL_FreeSurface(loadSurface);
     }
@@ -92,7 +92,7 @@ void Plane::HandleInputAction(SDL_Event &e, SDL_Renderer* ren, Mix_Chunk* sound)
         if (e.key.keysym.sym == SDLK_j)
         {
             Bullet* bullet = new Bullet();
-            bullet->loadIMG("assets/Bullet_1.png", ren);
+            bullet->loadIMG("bin/Release/assets/Bullet_1.png", ren);
             bullet->set_type(1);
             bullet->set_index(0);
             bullet->SetWidthHeight(PlaneBullet_WIDTH, PlaneBullet_HEIGHT);

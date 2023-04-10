@@ -15,7 +15,7 @@ void Chicken_Wave_2(vector<Chicken*> &chicken_list, SDL_Renderer* ren)
     for (int i = 0; i < Number_of_chickenwave2; i++)
     {
         Chicken* chicken = new Chicken();
-        chicken->loadIMG("assets/Chicken_xanh.png", ren);
+        chicken->loadIMG("bin/Debug/assets/Chicken_xanh.png", ren);
         chicken->set_type(2);
         chicken->set_angle(90);
         chicken->set_health(1);
@@ -37,7 +37,7 @@ void Chicken_Wave_3(vector<Chicken*> &chicken_list, SDL_Renderer* ren)
     for (int i = 0; i < Number_of_chickenwave3; i++)
     {
         Chicken* chicken = new Chicken();
-        chicken->loadIMG("assets/Chicken_do.png", ren);
+        chicken->loadIMG("bin/Debug/assets/Chicken_do.png", ren);
         chicken->set_type(3);
         chicken->set_angle(90);
         chicken->set_health(1);
@@ -53,7 +53,7 @@ void Chicken_Wave_3(vector<Chicken*> &chicken_list, SDL_Renderer* ren)
     for (int i = 0; i < Number_of_chickenwave3; i++)
     {
         Chicken* chicken = new Chicken();
-        chicken->loadIMG("assets/Chicken_do.png", ren);
+        chicken->loadIMG("bin/Debug/assets/Chicken_do.png", ren);
         chicken->set_type(3);
         chicken->set_angle(90);
         chicken->set_health(1);
@@ -75,7 +75,7 @@ void Chicken_Wave_3(vector<Chicken*> &chicken_list, SDL_Renderer* ren)
     for (int i = 0; i < Number_of_chickenwave4; i++)
     {
         Chicken* chicken = new Chicken();
-        chicken->loadIMG("assets/Chicken_xanh.png", ren);
+        chicken->loadIMG("bin/Debug/assets/Chicken_xanh.png", ren);
         chicken->set_type(4);
         chicken->set_angle(90);
         chicken->set_health(1);
@@ -96,7 +96,7 @@ void Chicken_Wave_4(vector<Chicken*> &chicken_list, SDL_Renderer* ren)
     for (int i = 0; i < Number_of_chickenwave4; i++)
     {
         Chicken* chicken = new Chicken();
-        chicken->loadIMG("assets/Chicken_xanh.png", ren);
+        chicken->loadIMG("bin/Debug/assets/Chicken_xanh.png", ren);
         chicken->set_type(4);
         chicken->set_angle(90);
         chicken->set_health(1);
@@ -112,7 +112,7 @@ void Chicken_Wave_4(vector<Chicken*> &chicken_list, SDL_Renderer* ren)
     for (int i = 0; i < Number_of_chickenwave4; i++)
     {
         Chicken* chicken = new Chicken();
-        chicken->loadIMG("assets/Chicken_xanh.png", ren);
+        chicken->loadIMG("bin/Debug/assets/Chicken_xanh.png", ren);
         chicken->set_type(5);
         chicken->set_angle(90);
         chicken->set_health(1);
@@ -128,7 +128,7 @@ void Chicken_Wave_4(vector<Chicken*> &chicken_list, SDL_Renderer* ren)
     for (int i = 0; i < Number_of_chickenwave4; i++)
     {
         Chicken* chicken = new Chicken();
-        chicken->loadIMG("assets/Chicken_xanh.png", ren);
+        chicken->loadIMG("bin/Debug/assets/Chicken_xanh.png", ren);
         chicken->set_type(4);
         chicken->set_angle(90);
         chicken->set_health(1);
@@ -144,7 +144,7 @@ void Chicken_Wave_4(vector<Chicken*> &chicken_list, SDL_Renderer* ren)
     for (int i = 0; i < Number_of_chickenwave4; i++)
     {
         Chicken* chicken = new Chicken();
-        chicken->loadIMG("assets/Chicken_xanh.png", ren);
+        chicken->loadIMG("bin/Debug/assets/Chicken_xanh.png", ren);
         chicken->set_type(5);
         chicken->set_angle(90);
         chicken->set_health(1);
@@ -174,7 +174,7 @@ void Chicken_Wave_6(vector<Chicken*> &chicken_list, SDL_Renderer* ren)
     for (int i = 0; i < Number_of_chickenwave6; i++)
     {
         Chicken* chicken = new Chicken();
-        chicken->loadIMG("assets/Meteorite.png", ren);
+        chicken->loadIMG("bin/Debug/assets/Meteorite.png", ren);
         chicken->set_type(11);
         chicken->set_angle(90);
         chicken->set_health(3);

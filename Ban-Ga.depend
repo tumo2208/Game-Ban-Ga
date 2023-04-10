@@ -15,7 +15,7 @@
 	<SDL_mixer.h>
 	<SDL_ttf.h>
 
-1680589669 source:c:\users\admin\desktop\ban-ga\chicken.cpp
+1681111291 source:c:\users\admin\desktop\ban-ga\chicken.cpp
 	"Chicken.h"
 
 1680589683 c:\users\admin\desktop\ban-ga\chicken.h
@@ -24,7 +24,7 @@
 1680793048 c:\users\admin\desktop\ban-ga\plane.h
 	"Bullet.h"
 
-1680967422 source:c:\users\admin\desktop\ban-ga\chickenwave.cpp
+1681111291 source:c:\users\admin\desktop\ban-ga\chickenwave.cpp
 	"ChickenWave.h"
 
 1680706105 c:\users\admin\desktop\ban-ga\chickenwave.h
@@ -42,7 +42,7 @@
 1680755193 source:c:\users\admin\desktop\ban-ga\entity.cpp
 	"Entity.h"
 
-1680793180 source:c:\users\admin\desktop\ban-ga\game.cpp
+1681111291 source:c:\users\admin\desktop\ban-ga\game.cpp
 	"Game.h"
 	"Plane.h"
 	"Chicken.h"
@@ -56,13 +56,13 @@
 1679153677 source:c:\users\admin\desktop\ban-ga\main.cpp
 	"Game.h"
 
-1680967659 source:c:\users\admin\desktop\ban-ga\menu.cpp
+1681111291 source:c:\users\admin\desktop\ban-ga\menu.cpp
 	"Menu.h"
 
 1680967659 c:\users\admin\desktop\ban-ga\menu.h
 	"Collision.h"
 
-1680793048 source:c:\users\admin\desktop\ban-ga\plane.cpp
+1681110996 source:c:\users\admin\desktop\ban-ga\plane.cpp
 	"Plane.h"
 
 1680591525 source:c:\users\admin\desktop\ban-ga\ttf.cpp

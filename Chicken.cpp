@@ -163,7 +163,7 @@ void Chicken::MakeBullet(vector<Bullet*> &egg_list, SDL_Renderer* ren, Plane &sp
         Bullet* egg = new Bullet();
         egg->set_type(1);
         egg->set_index(0);
-        egg->loadIMG("assets/egg.png", ren);
+        egg->loadIMG("bin/Debug/assets/egg.png", ren);
         egg->set_is_move(true);
         egg->set_angle(90);
         egg->set_x_speed(3);
@@ -186,7 +186,7 @@ void Chicken::MakeBullet(vector<Bullet*> &egg_list, SDL_Renderer* ren, Plane &sp
             else if (i == 4 || i == 5 || i == 10 || i == 11) egg->set_index(180 - 30*i);
             else egg->set_index(270 - 30*i);
 
-            egg->loadIMG("assets/Chicken_waste.png", ren);
+            egg->loadIMG("bin/Debug/assets/Chicken_waste.png", ren);
             egg->set_is_move(true);
             egg->set_angle(0 + 30*i);
             egg->set_x_speed(3);
@@ -203,7 +203,7 @@ void Chicken::MakeBullet(vector<Bullet*> &egg_list, SDL_Renderer* ren, Plane &sp
         Bullet* egg = new Bullet();
         egg->set_type(1);
         egg->set_index(0);
-        egg->loadIMG("assets/egg.png", ren);
+        egg->loadIMG("bin/Debug/assets/egg.png", ren);
         egg->set_is_move(true);
         egg->set_angle(90);
         egg->set_x_speed(3);
@@ -219,7 +219,7 @@ void Chicken::MakeBullet(vector<Bullet*> &egg_list, SDL_Renderer* ren, Plane &sp
         Bullet* egg = new Bullet();
         egg->set_type(1);
         egg->set_index(0);
-        egg->loadIMG("assets/Chicken_waste.png", ren);
+        egg->loadIMG("bin/Debug/assets/Chicken_waste.png", ren);
         egg->set_is_move(true);
         egg->set_angle(90);
         egg->set_x_speed(3);
