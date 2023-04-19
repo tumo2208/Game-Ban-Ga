@@ -1,10 +1,9 @@
 #include "ConstVal.h"
 
 
-int GetRandom()
+int GetRandom_wave7()
 {
 
-    srand(time(NULL));
     int ran = rand() % 60 * 24;
     return ran;
 
@@ -26,5 +25,13 @@ bool Reverse(bool a)
 
     if (a == true)  return false;
     else return true;
+
+}
+
+
+int random_angle_1()
+{
+
+    return rand()%(165-15+1)+15;
 
 }

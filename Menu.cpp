@@ -262,7 +262,7 @@ void Menu::Home(SDL_Event& e, SDL_Renderer* ren, bool& QuitMenu, bool& game, boo
 }
 
 
-void Menu::Restart(SDL_Event& e, SDL_Renderer* ren, vector<Chicken*> &chicken_list, Plane &spaceship, vector<Bullet*> &egg_list, int& wave, int& score, bool& SetPositionPlane, bool& victory, bool& GameOver, bool& score_screen)
+void Menu::Restart(SDL_Event& e, SDL_Renderer* ren, vector<Chicken*> &chicken_list, Plane &spaceship, vector<Bullet*> &egg_list, vector<Spell*> spell_list, int& wave, int& score, bool& SetPositionPlane, bool& victory, bool& GameOver, bool& score_screen)
 {
 
     if (Click())
@@ -272,7 +272,7 @@ void Menu::Restart(SDL_Event& e, SDL_Renderer* ren, vector<Chicken*> &chicken_li
 		{
 		    GameOver = false;
 		    score_screen = false;
-            Reset(chicken_list, spaceship, egg_list, wave, score, SetPositionPlane, victory);
+            Reset(chicken_list, spaceship, egg_list, spell_list, wave, score, SetPositionPlane, victory);
 		}
 	}
 	else

@@ -16,9 +16,10 @@ class Bullet : public Entity
             ypos = y;
         }
         void set_type(const int& Type) {type=Type;}
-        void set_index(const int& i) {index = i;}
+        void set_index(const float& i) {index = i;}
         int get_index() const {return index;}
-        void set_angle(const int& Angle) {angle = Angle;}
+        void set_angle(const float& Angle) {angle = Angle;}
+        float get_angle()   const {return angle;}
         void set_x_speed(const float& x) {x_speed=x;}
         void set_y_speed(const float& y) {y_speed=y;}
         void set_is_move(const bool& ismove) {isMove = ismove;}
@@ -30,8 +31,8 @@ class Bullet : public Entity
         float xpos, ypos;
         float x_speed, y_speed;
         int type;
-        int angle;
-        int index;
+        float angle;
+        float index;
 
         bool isMove;
 

@@ -10,6 +10,10 @@ void Chicken_Wave_3(vector<Chicken*> &chicken_list, SDL_Renderer* ren);
 void Chicken_Wave_4(vector<Chicken*> &chicken_list, SDL_Renderer* ren);
 void Chicken_Wave_5(vector<Chicken*> &chicken_list, SDL_Renderer* ren);
 void Chicken_Wave_6(vector<Chicken*> &chicken_list, SDL_Renderer* ren);
+void Chicken_Wave_7(vector<Chicken*> &chicken_list, SDL_Renderer* ren);
+void Chicken_Wave_8(vector<Chicken*> &chicken_list, SDL_Renderer* ren);
+void Chicken_Wave_9(vector<Chicken*> &chicken_list, SDL_Renderer* ren);
+void Chicken_Boss(vector<Chicken*> &chicken_list, SDL_Renderer* ren);
 
 void SwapWave(vector<Chicken*> &chicken_list, SDL_Renderer* ren, int& wave, bool& victory);
 

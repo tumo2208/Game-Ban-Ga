@@ -6,6 +6,7 @@ Plane::Plane()
 
     rect = {0, 0, 0, 0};
     texture = NULL;
+    type_spell = 1;
 
 }
 
@@ -19,40 +20,10 @@ Plane::~Plane()
 void Plane::loadIMG(const int& plane_number, SDL_Renderer* ren)
 {
 
-    if (mod(plane_number, 5) == 1)
-    {
-        SDL_Surface* loadSurface = IMG_Load("bin/Release/assets/SpaceShip1.png");
-        texture = SDL_CreateTextureFromSurface(ren, loadSurface);
-        SDL_FreeSurface(loadSurface);
-    }
-
-    if (mod(plane_number, 5) == 2)
-    {
-        SDL_Surface* loadSurface = IMG_Load("bin/Release/assets/SpaceShip2.png");
-        texture = SDL_CreateTextureFromSurface(ren, loadSurface);
-        SDL_FreeSurface(loadSurface);
-    }
-
-    if (mod(plane_number, 5) == 3)
-    {
-        SDL_Surface* loadSurface = IMG_Load("bin/Release/assets/SpaceShip3.png");
-        texture = SDL_CreateTextureFromSurface(ren, loadSurface);
-        SDL_FreeSurface(loadSurface);
-    }
-
-    if (mod(plane_number, 5) == 4)
-    {
-        SDL_Surface* loadSurface = IMG_Load("bin/Release/assets/SpaceShip4.png");
-        texture = SDL_CreateTextureFromSurface(ren, loadSurface);
-        SDL_FreeSurface(loadSurface);
-    }
-
-    if (mod(plane_number, 5) == 5)
-    {
-        SDL_Surface* loadSurface = IMG_Load("bin/Release/assets/SpaceShip5.png");
-        texture = SDL_CreateTextureFromSurface(ren, loadSurface);
-        SDL_FreeSurface(loadSurface);
-    }
+    string s = "bin/Debug/assets/SpaceShip" + to_string(mod(plane_number, 5)) + ".png";
+    SDL_Surface* loadSurface = IMG_Load(s.c_str());
+    texture = SDL_CreateTextureFromSurface(ren, loadSurface);
+    SDL_FreeSurface(loadSurface);
 
 }
 
@@ -91,17 +62,59 @@ void Plane::HandleInputAction(SDL_Event &e, SDL_Renderer* ren, Mix_Chunk* sound)
     {
         if (e.key.keysym.sym == SDLK_j)
         {
-            Bullet* bullet = new Bullet();
-            bullet->loadIMG("bin/Release/assets/Bullet_1.png", ren);
-            bullet->set_type(1);
-            bullet->set_index(0);
-            bullet->SetWidthHeight(PlaneBullet_WIDTH, PlaneBullet_HEIGHT);
-            bullet->Bullet::SetPosition(rect.x + rect.w/2 - PlaneBullet_WIDTH/2, rect.y - PlaneBullet_HEIGHT/2);
-            bullet->set_angle(-90);
-            bullet->set_x_speed(PlaneBullet_SPEED);
-            bullet->set_y_speed(PlaneBullet_SPEED);
-            bullet->set_is_move(true);
-            bullet_list.push_back(bullet);
+            if (type_spell == 1)
+            {
+                Bullet* bullet = new Bullet();
+                bullet->loadIMG("bin/Release/assets/Bullet_1.png", ren);
+                bullet->set_type(1);
+                bullet->set_index(0);
+                bullet->SetWidthHeight(PlaneBullet_WIDTH, PlaneBullet_HEIGHT);
+                bullet->Bullet::SetPosition(rect.x + rect.w/2 - PlaneBullet_WIDTH/2, rect.y - PlaneBullet_HEIGHT/2);
+                bullet->set_angle(-90);
+                bullet->set_x_speed(PlaneBullet_SPEED);
+                bullet->set_y_speed(PlaneBullet_SPEED);
+                bullet->set_is_move(true);
+                bullet_list.push_back(bullet);
+            }
+
+            else if (type_spell == 2)
+            {
+                for (int i = -1; i <= 1; i+=2)
+                {
+                    Bullet* bullet = new Bullet();
+                    bullet->loadIMG("bin/Release/assets/Bullet_1.png", ren);
+                    bullet->set_type(1);
+                    bullet->set_index(0);
+                    bullet->SetWidthHeight(PlaneBullet_WIDTH, PlaneBullet_HEIGHT);
+                    bullet->Bullet::SetPosition(rect.x + rect.w/2 - PlaneBullet_WIDTH/2 + 20*i, rect.y - PlaneBullet_HEIGHT/2);
+                    bullet->set_angle(-90);
+                    bullet->set_x_speed(PlaneBullet_SPEED);
+                    bullet->set_y_speed(PlaneBullet_SPEED);
+                    bullet->set_is_move(true);
+                    bullet_list.push_back(bullet);
+                }
+            }
+
+            else if (type_spell == 3)
+            {
+                for (int i = -1; i < 2; i++)
+                {
+                    Bullet* bullet = new Bullet();
+                    bullet->loadIMG("bin/Release/assets/Bullet_1.png", ren);
+                    bullet->set_type(1);
+                    bullet->SetWidthHeight(PlaneBullet_WIDTH, PlaneBullet_HEIGHT);
+                    bullet->Bullet::SetPosition(rect.x + rect.w/2 - PlaneBullet_WIDTH/2 - 10, rect.y - PlaneBullet_HEIGHT/2);
+                    bullet->set_angle(270 + 30*i);
+                    if (i == -1)
+                        bullet->set_index(-30);
+                    if (i == 1)
+                        bullet->set_index(30);
+                    bullet->set_x_speed(PlaneBullet_SPEED);
+                    bullet->set_y_speed(PlaneBullet_SPEED);
+                    bullet->set_is_move(true);
+                    bullet_list.push_back(bullet);
+                }
+            }
 
             Mix_PlayChannel(-1, sound, 0);
         }
@@ -120,7 +133,7 @@ void Plane::MakeBullet(SDL_Renderer* ren)
         if(bullet->get_is_move())
         {
             bullet->BulletMove(SCREEN_WIDTH,SCREEN_HEIGHT);
-            bullet->Display(ren);
+            bullet->Display(ren, bullet->get_index());
         }
         else
         {
@@ -158,5 +171,6 @@ void Plane::ResetBulletPlane()
 {
 
     bullet_list.erase(bullet_list.begin(), bullet_list.end());
+    type_spell = 1;
 
 }

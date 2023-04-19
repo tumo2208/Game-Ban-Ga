@@ -4,6 +4,7 @@
 #include "ChickenWave.h"
 #include "Collision.h"
 #include "Menu.h"
+#include "Spell.h"
 
 
 Game::Game()
@@ -54,12 +55,17 @@ void Game::Run()
     Mix_Chunk* Game_Music = Mix_LoadWAV("bin/Debug/assets/Game_Music.wav");
     Mix_Chunk* gameover_music_sound = Mix_LoadWAV("bin/Debug/assets/gameover_music_sound.wav");
     Mix_Chunk* victory_music_sound = Mix_LoadWAV("bin/Debug/assets/victory_music_sound.wav");
+    Mix_Chunk* meteorite_die_sound = Mix_LoadWAV("bin/Debug/assets/meteorite_die.wav");
+    Mix_Chunk* egg_cracking_sound = Mix_LoadWAV("bin/Debug/assets/egg_cracking.wav");
+    Mix_Chunk* Boss_Music = Mix_LoadWAV("bin/Debug/assets/Boss_Music.wav");
+    Mix_Chunk* metal_sound = Mix_LoadWAV("bin/Debug/assets/metal_sound.wav");
 
     if (TTF_Init() == -1)   isRunning = false;
     TTF_Font* font = TTF_OpenFont("bin/Debug/assets/arial.ttf", 20);
 
     Plane spaceship;
     Entity Score;
+    Entity number_wave;
 
     Menu game_background;
     Menu game_gameover;
@@ -83,9 +89,11 @@ void Game::Run()
 
     vector<Chicken*> chicken_list;
     vector<Bullet*> egg_list;
+    vector<Spell*> spell_list;
 
     int wave = 0;
     int plane_number = 1;
+    int count_chicken_wave8 = 0;
 
     game_menu.Entity::loadIMG("bin/Debug/assets/Background_Menu.png", ren);
     game_help.Entity::loadIMG("bin/Debug/assets/Game_Help.png", ren);
@@ -107,6 +115,8 @@ void Game::Run()
 
     Score.SetWidthHeight(150, 150);
     Score.Entity::SetPosition(SCREEN_WIDTH/2 - 60, SCREEN_HEIGHT/2 + 30);
+    number_wave.SetWidthHeight(400, 200);
+    number_wave.Entity::SetPosition(SCREEN_WIDTH/2 - 200, SCREEN_HEIGHT/3);
 
     while (isRunning)
     {
@@ -117,7 +127,7 @@ void Game::Run()
         {
             Mix_HaltChannel(2);
             reset = false;
-            Reset(chicken_list, spaceship, egg_list, wave, score, SetPositionPlane, victory);
+            Reset(chicken_list, spaceship, egg_list, spell_list, wave, score, SetPositionPlane, victory);
             plane_number = 1;
         }
 
@@ -222,8 +232,18 @@ void Game::Run()
             {
                 if (!pause)
                 {
-                    if (!Mix_Playing(2))
-                        Mix_PlayChannel(2, Game_Music, 0);
+                    if (wave < 10)
+                    {
+                        if (!Mix_Playing(2))
+                            Mix_PlayChannel(2, Game_Music, 0);
+                    }
+
+                    else
+                    {
+                        Mix_HaltChannel(2);
+                        if (!Mix_Playing(5))
+                            Mix_PlayChannel(5, Boss_Music, 0);
+                    }
 
                     game_background.MoveBackground(ren);
 
@@ -238,7 +258,7 @@ void Game::Run()
                     spaceship.Display(ren);
 
                     SwapWave(chicken_list, ren, wave, victory);
-                    Collision(chicken_list, spaceship, egg_list, ren, GameOver, score, chicken_die_sound);
+                    Collision(chicken_list, spaceship, egg_list, spell_list, ren, e, GameOver, pause, wave, score, count_chicken_wave8, chicken_die_sound, meteorite_die_sound, egg_cracking_sound, metal_sound);
 
                     SDL_RenderPresent(ren);
                 }
@@ -258,6 +278,11 @@ void Game::Run()
                     HomeButton.Home(e, ren, QuitMenu, game, GameOver, reset, pause, menu, score_screen);
                     HomeButton.Display(ren);
 
+                    number_wave.set_color(128, 255, 255);
+                    number_wave.set_text("Wave " + to_string(wave));
+                    number_wave.loadText(font, ren);
+                    number_wave.Display(ren);
+
                     SDL_RenderPresent(ren);
                 }
             }
@@ -265,6 +290,7 @@ void Game::Run()
             if (victory)
             {
                 Mix_HaltChannel(2);
+                Mix_HaltChannel(5);
 
                 if (!score_screen)
                 {
@@ -298,7 +324,7 @@ void Game::Run()
 
                     RestartButton.SetWidthHeight(100, 100);
                     RestartButton.Entity::SetPosition(SCREEN_WIDTH - 200, SCREEN_HEIGHT - 150);
-                    RestartButton.Restart(e, ren, chicken_list, spaceship, egg_list, wave, score, SetPositionPlane, victory, GameOver, score_screen);
+                    RestartButton.Restart(e, ren, chicken_list, spaceship, egg_list, spell_list, wave, score, SetPositionPlane, victory, GameOver, score_screen);
                     RestartButton.Display(ren);
 
                     SDL_RenderPresent(ren);
@@ -308,6 +334,7 @@ void Game::Run()
             if (GameOver)
             {
                 Mix_HaltChannel(2);
+                Mix_HaltChannel(5);
 
                 if (!score_screen)
                 {
@@ -341,7 +368,7 @@ void Game::Run()
 
                     RestartButton.SetWidthHeight(100, 100);
                     RestartButton.Entity::SetPosition(SCREEN_WIDTH - 200, SCREEN_HEIGHT - 150);
-                    RestartButton.Restart(e, ren, chicken_list, spaceship, egg_list, wave, score, SetPositionPlane, victory, GameOver, score_screen);
+                    RestartButton.Restart(e, ren, chicken_list, spaceship, egg_list, spell_list, wave, score, SetPositionPlane, victory, GameOver, score_screen);
                     RestartButton.Display(ren);
 
                     SDL_RenderPresent(ren);
@@ -379,5 +406,16 @@ void Game::Run()
         }
     }
     chicken_list.clear();
+
+    for (int i = 0; i < int(spell_list.size()); i++)
+    {
+        Spell* spell = spell_list[i];
+        if (spell != NULL)
+        {
+            delete spell;
+            spell = NULL;
+        }
+    }
+    spell_list.clear();
 
 }

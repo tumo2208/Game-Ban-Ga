@@ -21,7 +21,7 @@ class Menu : public Entity
         void Continue(SDL_Event& e, SDL_Renderer* ren, bool& pause);
         void Next(SDL_Event& e, SDL_Renderer* ren, bool& score);
         void Home(SDL_Event& e, SDL_Renderer* ren, bool& QuitMenu, bool& game, bool& GameOver, bool& reset, bool& pause, bool& menu, bool& score_screen);
-        void Restart(SDL_Event& e, SDL_Renderer* ren, vector<Chicken*> &chicken_list, Plane &spaceship, vector<Bullet*> &egg_list, int& wave, int& score, bool& SetPositionPlane, bool& victory, bool& GameOver, bool& score_screen);
+        void Restart(SDL_Event& e, SDL_Renderer* ren, vector<Chicken*> &chicken_list, Plane &spaceship, vector<Bullet*> &egg_list, vector<Spell*> spell_list, int& wave, int& score, bool& SetPositionPlane, bool& victory, bool& GameOver, bool& score_screen);
 
 };
 

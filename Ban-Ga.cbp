@@ -51,6 +51,8 @@
 		<Unit filename="Menu.h" />
 		<Unit filename="Plane.cpp" />
 		<Unit filename="Plane.h" />
+		<Unit filename="Spell.cpp" />
+		<Unit filename="Spell.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

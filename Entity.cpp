@@ -48,8 +48,6 @@ void Entity::MoveBackground(SDL_Renderer* ren)
 void Entity::Display(SDL_Renderer* ren, int index)
 {
 
-    //SDL_RenderCopy(ren, texture, NULL, &rect);
-
     SDL_RenderCopyEx(ren, texture, NULL, &rect, index, NULL, SDL_FLIP_NONE);
 
 }

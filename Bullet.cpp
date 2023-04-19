@@ -9,8 +9,8 @@ Bullet::Bullet()
     xpos = ypos = 0.f;
     x_speed = y_speed = 0.f;
     type = 0;
-    angle = 90;
-    index = 0;
+    angle = 90.f;
+    index = 0.f;
     isMove = false;
 
 }
